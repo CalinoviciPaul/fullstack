@@ -1,4 +1,4 @@
-package ro.irian.fullstack.pizza.web.rest;
+package ro.irian.fullstack.pizza.service;
 
 import ro.irian.fullstack.pizza.domain.Pizza;
 import ro.irian.fullstack.pizza.domain.Review;
@@ -9,27 +9,18 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * REST service for pizzas.
+ * Service for pizzas.
  *
  * @author Cristi Toth
  */
+//TODO: declare as service bean
+public class PizzaService {
 
 
-public class PizzaController {
+	  // TODO implement methods; throw exceptions when needed
 
 
-    public List<Pizza> getAllPizzas() {
-        //TODO
-        return null;
-    }
-
-    public Pizza findPizza(String pizzaId) {
-        //TODO
-        return null;
-    }
-
-
-
+	   
     private static List<Pizza> pizzas;
     private static Map<String, Pizza> pizzaMap;
 
@@ -71,5 +62,6 @@ public class PizzaController {
 
         pizzas.stream().forEach(p -> pizzaMap.put(p.get_id(), p));
     }
+
 
 }
