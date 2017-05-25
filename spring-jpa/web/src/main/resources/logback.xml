@@ -14,6 +14,8 @@
 
     <logger name="ro.irian" level="DEBUG"/>
 
+    <logger name="org.hibernate.SQL" level="DEBUG"/>
+
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>

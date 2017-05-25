@@ -1,40 +1,37 @@
 package ro.irian.fullstack.pizza.domain;
 
+import javax.persistence.Entity;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author Cristi Toth
  */
-public class Pizza {
+@Entity
+public class Pizza extends BaseEntity{
 
-    private String _id;
+    //TODO
     private String name;
     private Double price;
     private Integer weight;
     private String image;
     private String ingredients;
+
+    //TODO
     private List<Review> reviews;
 
     private boolean canPurchase = true;
     private boolean soldOut = false;
 
+    protected Pizza() {}
 
     public Pizza(String _id, String name, Double price, Integer weight, String image, String ingredients) {
-        this._id = _id;
+        this.set_id(_id);
         this.name = name;
         this.price = price;
         this.weight = weight;
         this.image = image;
         this.ingredients = ingredients;
-    }
-
-    public String get_id() {
-        return _id;
-    }
-
-    public void set_id(String _id) {
-        this._id = _id;
     }
 
     public String getName() {

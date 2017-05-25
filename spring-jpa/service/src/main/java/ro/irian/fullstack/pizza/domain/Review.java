@@ -3,13 +3,16 @@ package ro.irian.fullstack.pizza.domain;
 /**
  * @author Cristi Toth
  */
-public class Review {
+//TODO
+public class Review extends BaseEntity{
 
     private Integer stars;
     private String body;
     private String author;
     private Long createdOn;
 
+
+    protected Review() {}
 
     public Review(Integer stars, String body, String author, Long createdOn) {
         this.stars = stars;

@@ -11,4 +11,6 @@ public interface PizzaService {
     List<Pizza> getAllPizzas();
 
     Pizza findPizza(String pizzaId);
+
+    void createTestdata();
 }

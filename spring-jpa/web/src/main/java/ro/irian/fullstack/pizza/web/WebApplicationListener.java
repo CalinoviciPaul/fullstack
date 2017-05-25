@@ -9,6 +9,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
+import ro.irian.fullstack.pizza.service.PizzaService;
 
 @Component
 @Order(10)
@@ -19,16 +20,21 @@ public class WebApplicationListener implements ApplicationListener<ContextRefres
     private Environment environment;
     private ApplicationContext applicationContext;
 
+    private PizzaService pizzaService;
+
     @Autowired
     public WebApplicationListener(Environment environment,
-                                  ApplicationContext applicationContext) {
+                                  ApplicationContext applicationContext,
+                                  PizzaService pizzaService) {
         this.environment = environment;
         this.applicationContext = applicationContext;
+        this.pizzaService = pizzaService;
 
     }
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
+        //TODO: trigger create data
         LOG.debug("Pizza application started in env:" + environment);
     }
 

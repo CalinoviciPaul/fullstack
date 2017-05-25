@@ -1,14 +1,14 @@
 package ro.irian.fullstack.pizza.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ro.irian.fullstack.pizza.domain.Pizza;
 import ro.irian.fullstack.pizza.domain.Review;
 import ro.irian.fullstack.pizza.service.exception.PizzaNotFoundException;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Service for Pizzas.
@@ -19,15 +19,26 @@ import java.util.Map;
 @Service
 public class PizzaServiceImpl implements PizzaService {
 
+    private static final Logger LOG = LoggerFactory.getLogger(PizzaServiceImpl.class);
+
+
+    //TODO: inject repository
+
+
+//    @PostConstruct
+//    @Transactional
+    public void init() {
+        LOG.info("Service initialized");
+    }
 
     @Override
     public List<Pizza> getAllPizzas() {
-        return pizzas;
+        //TODO
     }
 
     @Override
     public Pizza findPizza(String pizzaId) {
-        Pizza pizza = pizzaMap.get(pizzaId);
+        Pizza pizza = null; //TODO;
 
         if (pizza == null) {
             throw new PizzaNotFoundException(pizzaId);
@@ -36,14 +47,9 @@ public class PizzaServiceImpl implements PizzaService {
         return pizza;
     }
 
-
-
-    private static List<Pizza> pizzas;
-    private static Map<String, Pizza> pizzaMap;
-
-    static {
-        pizzas = new ArrayList<>(3);
-        pizzaMap = new HashMap<>(5);
+    @Override
+    @Transactional
+    public void createTestdata() {
 
 
         Pizza pizza;
@@ -56,7 +62,8 @@ public class PizzaServiceImpl implements PizzaService {
                           "sos rosii, mozzarella, ciuperci, salam, sunca presata, oregano, anghinare");
         pizza.addReview(new Review(5, "I love this pizza!", "joe@example.org", 100000000L));
         pizza.addReview(new Review(4, "It's great!", "miha@example.org", 100000000L));
-        pizzas.add(pizza);
+
+//      TODO  save(pizza);
 
         pizza = new Pizza("pizza2",
                           "PEPPERONI",
@@ -66,7 +73,8 @@ public class PizzaServiceImpl implements PizzaService {
                           "sos rosii, mozzarella, salam picant, oregano");
         pizza.addReview(new Review(5, "It's the best pizza!", "marius@irian.ro", 110000000L));
         pizza.addReview(new Review(1, "It's awful!", "cristi@irian.ro", 130000000L));
-        pizzas.add(pizza);
+
+//      TODO  save(pizza);
 
         pizza = new Pizza("pizza3",
                           "MARGARITA",
@@ -75,9 +83,9 @@ public class PizzaServiceImpl implements PizzaService {
                           "images/margarita.png",
                           "sos rosii, mozzarella, oregano");
         pizza.addReview(new Review(2, "It's too boring!", "cristi@irian.ro", 140000000L));
-        pizzas.add(pizza);
+//      TODO  save(pizza);
 
-        pizzas.stream().forEach(p -> pizzaMap.put(p.get_id(), p));
+        LOG.info("Testdata initialized");
     }
 
 }
