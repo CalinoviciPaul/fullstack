@@ -15,4 +15,5 @@ public class PizzaNotFoundException extends ServiceException {
     public String getId() {
         return id;
     }
+
 }

@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ro.irian.fullstack.spring-rest</groupId>
-    <artifactId>spring-rest-example-02</artifactId>
+    <artifactId>spring-rest-02</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>IRIAN Labs - Spring REST Example 02</name>
+    <name>IRIAN Labs - Spring REST Exercise 02</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,20 +28,20 @@
             <!-- Project module dependencies -->
             <dependency>
                 <groupId>ro.irian.fullstack.spring-rest</groupId>
-                <artifactId>spring-rest-example-02-service</artifactId>
+                <artifactId>spring-rest-02-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>ro.irian.fullstack.spring-rest</groupId>
-                <artifactId>spring-rest-example-02-web</artifactId>
+                <artifactId>spring-rest-02-web</artifactId>
                 <version>${project.version}</version>
                 <type>war</type>
             </dependency>
 
             <dependency>
                 <groupId>ro.irian.fullstack.spring-rest</groupId>
-                <artifactId>spring-rest-example-02-web</artifactId>
+                <artifactId>spring-rest-02-web</artifactId>
                 <version>${project.version}</version>
                 <type>pom</type>
             </dependency>
@@ -60,18 +60,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${spring-boot.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter</artifactId>
-                <version>1.5.3.RELEASE</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
 
 

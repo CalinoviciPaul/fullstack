@@ -12,7 +12,7 @@
 
     <logger name="org.springframework" level="INFO"/>
 
-    <!-- TODO: enable debug logging for ro.irian-->
+    <logger name="ro.irian" level="DEBUG"/>
 
     <root level="INFO">
         <appender-ref ref="STDOUT"/>

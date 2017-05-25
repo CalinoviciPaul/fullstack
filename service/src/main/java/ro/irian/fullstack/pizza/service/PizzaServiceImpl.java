@@ -1,7 +1,9 @@
 package ro.irian.fullstack.pizza.service;
 
+import org.springframework.stereotype.Service;
 import ro.irian.fullstack.pizza.domain.Pizza;
 import ro.irian.fullstack.pizza.domain.Review;
+import ro.irian.fullstack.pizza.service.exception.PizzaNotFoundException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,18 +11,33 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Service for pizzas.
+ * Service for Pizzas.
  *
  * @author Cristi Toth
  */
-//TODO: declare as service bean
+
+@Service
 public class PizzaServiceImpl implements PizzaService {
 
 
-	  // TODO implement methods; throw exceptions when needed
+    @Override
+    public List<Pizza> getAllPizzas() {
+        return pizzas;
+    }
+
+    @Override
+    public Pizza findPizza(String pizzaId) {
+        Pizza pizza = pizzaMap.get(pizzaId);
+
+        if (pizza == null) {
+            throw new PizzaNotFoundException(pizzaId);
+        }
+
+        return pizza;
+    }
 
 
-	   
+
     private static List<Pizza> pizzas;
     private static Map<String, Pizza> pizzaMap;
 
@@ -62,6 +79,5 @@ public class PizzaServiceImpl implements PizzaService {
 
         pizzas.stream().forEach(p -> pizzaMap.put(p.get_id(), p));
     }
-
 
 }

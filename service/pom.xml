@@ -5,20 +5,26 @@
 
     <parent>
         <groupId>ro.irian.fullstack.spring-rest</groupId>
-        <artifactId>spring-rest-example-02</artifactId>
+        <artifactId>spring-rest-02</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>spring-rest-example-02-service</artifactId>
+    <artifactId>spring-rest-02-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>IRIAN Labs - Spring REST Example 02 - Service</name>
+    <name>IRIAN Labs - Spring REST 02 - Service</name>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- Logging -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
         </dependency>
 
     </dependencies>
