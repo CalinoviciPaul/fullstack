@@ -3,12 +3,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ro.irian.fullstack</groupId>
-    <artifactId>fullstack2017</artifactId>
+    <parent>
+        <groupId>ro.irian.fullstack</groupId>
+        <artifactId>fullstack2017</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <groupId>ro.irian.fullstack.spring-rest</groupId>
+    <artifactId>spring-rest-02</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>IRIAN Labs</name>
+    <name>IRIAN Labs - Spring REST Exercise 02</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,16 +26,29 @@
     </properties>
 
     <modules>
-        <module>spring-rest</module>
-        <!--<module>spring-jpa01</module>-->
+        <module>service</module>
+        <module>web</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+            <!-- Project module dependencies -->
+            <dependency>
+                <groupId>ro.irian.fullstack.spring-rest</groupId>
+                <artifactId>spring-rest-02-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>ro.irian.fullstack.spring-rest</groupId>
-                <artifactId>spring-rest-02</artifactId>
+                <artifactId>spring-rest-02-web</artifactId>
+                <version>${project.version}</version>
+                <type>war</type>
+            </dependency>
+
+            <dependency>
+                <groupId>ro.irian.fullstack.spring-rest</groupId>
+                <artifactId>spring-rest-02-web</artifactId>
                 <version>${project.version}</version>
                 <type>pom</type>
             </dependency>
