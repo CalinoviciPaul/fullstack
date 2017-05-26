@@ -11,6 +11,6 @@
 
     <mapped-superclass class="ro.irian.fullstack.pizza.domain.BaseEntity"/>
     <entity class="ro.irian.fullstack.pizza.domain.Pizza"/>
-    <!--TODO: add Review-->
+    <entity class="ro.irian.fullstack.pizza.domain.Review"/>
 
 </entity-mappings>

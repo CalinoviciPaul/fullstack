@@ -34,7 +34,7 @@ public class WebApplicationListener implements ApplicationListener<ContextRefres
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-        //TODO: trigger create data
+        pizzaService.createTestdata();
         LOG.debug("Pizza application started in env:" + environment);
     }
 
