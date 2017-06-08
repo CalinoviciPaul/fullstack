@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2017 Irian Software Development SRL. All Rights Reserved.
+  ~ This software is the proprietary information of Irian Software Development SRL.
+  ~ Use is subject to license and non-disclosure terms
+  -->
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="mypizza" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <mapping-file>META-INF/pizza-domain.orm.xml</mapping-file>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <validation-mode>NONE</validation-mode>
+        <properties>
+            <!--<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>-->
+           <!-- <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>-->
+        </properties>
+    </persistence-unit>
+</persistence>
