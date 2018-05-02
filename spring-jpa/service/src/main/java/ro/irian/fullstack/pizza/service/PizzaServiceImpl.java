@@ -2,7 +2,6 @@ package ro.irian.fullstack.pizza.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ro.irian.fullstack.pizza.domain.Pizza;
@@ -23,8 +22,7 @@ public class PizzaServiceImpl implements PizzaService {
     private static final Logger LOG = LoggerFactory.getLogger(PizzaServiceImpl.class);
 
 
-    @Autowired
-    private PizzaRepository pizzaRepository;
+    //TODO: inject repository
 
 
 //    @PostConstruct
@@ -35,12 +33,12 @@ public class PizzaServiceImpl implements PizzaService {
 
     @Override
     public List<Pizza> getAllPizzas() {
-        return pizzaRepository.findAllPizzas();
+        //TODO
     }
 
     @Override
     public Pizza findPizza(String pizzaId) {
-        Pizza pizza = pizzaRepository.findPizzaById(pizzaId);
+        Pizza pizza = null; //TODO;
 
         if (pizza == null) {
             throw new PizzaNotFoundException(pizzaId);
@@ -65,7 +63,7 @@ public class PizzaServiceImpl implements PizzaService {
         pizza.addReview(new Review(5, "I love this pizza!", "joe@example.org", 100000000L));
         pizza.addReview(new Review(4, "It's great!", "miha@example.org", 100000000L));
 
-        pizzaRepository.save(pizza);
+//      TODO  save(pizza);
 
         pizza = new Pizza("pizza2",
                           "PEPPERONI",
@@ -76,7 +74,7 @@ public class PizzaServiceImpl implements PizzaService {
         pizza.addReview(new Review(5, "It's the best pizza!", "marius@irian.ro", 110000000L));
         pizza.addReview(new Review(1, "It's awful!", "cristi@irian.ro", 130000000L));
 
-        pizzaRepository.save(pizza);
+//      TODO  save(pizza);
 
         pizza = new Pizza("pizza3",
                           "MARGARITA",
@@ -85,7 +83,7 @@ public class PizzaServiceImpl implements PizzaService {
                           "images/margarita.png",
                           "sos rosii, mozzarella, oregano");
         pizza.addReview(new Review(2, "It's too boring!", "cristi@irian.ro", 140000000L));
-        pizzaRepository.save(pizza);
+//      TODO  save(pizza);
 
         LOG.info("Testdata initialized");
     }

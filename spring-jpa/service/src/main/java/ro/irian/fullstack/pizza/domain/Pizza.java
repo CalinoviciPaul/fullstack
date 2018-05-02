@@ -1,8 +1,6 @@
 package ro.irian.fullstack.pizza.domain;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,13 +10,14 @@ import java.util.List;
 @Entity
 public class Pizza extends BaseEntity{
 
+    //TODO
     private String name;
     private Double price;
     private Integer weight;
     private String image;
     private String ingredients;
-    
-    @OneToMany(cascade = {CascadeType.ALL})
+
+    //TODO
     private List<Review> reviews;
 
     private boolean canPurchase = true;

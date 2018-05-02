@@ -66,7 +66,8 @@ public class BaseEntity {
 
     @Transient
     public boolean isTransient() {
-        return this.version == null;
+        //TODO
+        return ;
     }
 
     @PrePersist
@@ -84,24 +85,11 @@ public class BaseEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof BaseEntity)) {
-            return false;
-        }
-
-        BaseEntity that = (BaseEntity) o;
-
-        if (!get_id().equals(that.get_id())) {
-            return false;
-        }
-
-        return true;
+        //TODO
     }
 
     @Override
     public int hashCode() {
-        return get_id().hashCode();
+        //TODO
     }
 }

@@ -1,11 +1,9 @@
 package ro.irian.fullstack.pizza.domain;
 
-import javax.persistence.Entity;
-
 /**
  * @author Cristi Toth
  */
-@Entity
+//TODO
 public class Review extends BaseEntity{
 
     private Integer stars;
