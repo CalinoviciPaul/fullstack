@@ -35,9 +35,6 @@ public class JpaPizzaRepository implements PizzaRepository {
     @SuppressWarnings("unchecked")
     @Override
     public List<Pizza> findPizzasByIngredient(String ingredient) {
-        return em.createQuery("select p from Pizza p"
-                              + " where p.ingredients like :ingredient")
-                 .setParameter("ingredient", "%" + ingredient + "%")
-                 .getResultList();
+        //TODO
     }
 }
