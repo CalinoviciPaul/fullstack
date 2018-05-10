@@ -29,9 +29,6 @@ public class PizzaServiceImpl implements PizzaService {
     @Autowired
     private PizzaRepository pizzaRepository;
 
-    @Autowired
-    private PizzaCrudRepository pizzaCrudRepository;
-
     public void init() {
         LOG.info("Service initialized");
     }
@@ -65,11 +62,6 @@ public class PizzaServiceImpl implements PizzaService {
         //TODO
 //    @Override
 //    public  findPizzaByName
-
-    @Override
-    public Pizza findPizzaByName(String pizzaName) {
-        return pizzaCrudRepository.findOneByName(pizzaName);
-    }
 
 
         //TODO

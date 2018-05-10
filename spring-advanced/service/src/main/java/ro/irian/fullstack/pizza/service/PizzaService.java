@@ -20,7 +20,5 @@ public interface PizzaService {
 
     Pizza findPizza(String pizzaId);
 
-    Pizza findPizzaByName(String pizzaName);
-
     void createTestdata();
 }

@@ -11,7 +11,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * @author Cristi Toth
  */
 @Configuration
-@EnableJpaRepositories("ro.irian.fullstack.pizza.service")
 @ComponentScan(basePackages = "ro.irian.fullstack.pizza.service")
 @ImportResource("classpath:/META-INF/pizza-persistence.spring.xml")
 public class PizzaServiceConfig {

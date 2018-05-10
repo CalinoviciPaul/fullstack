@@ -31,9 +31,6 @@ public class PizzaController {
     @Autowired
     private PizzaService pizzaService;
 
-    @Autowired
-    private PizzaValidator validator;
-
 
     @RequestMapping(method = {RequestMethod.GET})
     public Iterable<Pizza> getAllPizzas() {
@@ -51,18 +48,6 @@ public class PizzaController {
         //TODO
 //    public  getReviewsByAuthor
 
-    @RequestMapping(method = {RequestMethod.POST})
-    public ResponseEntity<?> savePizza(@RequestBody Pizza pizza,
-                                       BindingResult result)
-                                    throws URISyntaxException {
-        validator.validate(pizza, result);
-        if (result.hasErrors()) {
-            return ResponseEntity.badRequest().body(result.getFieldError());
-        }
-        else {
-            return ResponseEntity.created(
-                    new URI("/rest/pizzas/" + pizza.get_id()))
-                    .build();
-        }
-    }
+        //TODO
+//    public savePizza
 }
