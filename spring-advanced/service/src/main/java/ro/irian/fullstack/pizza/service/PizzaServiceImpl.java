@@ -3,10 +3,13 @@ package ro.irian.fullstack.pizza.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ro.irian.fullstack.pizza.domain.Pizza;
 import ro.irian.fullstack.pizza.domain.Review;
+import ro.irian.fullstack.pizza.domain.ReviewVO;
 import ro.irian.fullstack.pizza.service.exception.PizzaNotFoundException;
 
 import java.util.List;
@@ -26,17 +29,35 @@ public class PizzaServiceImpl implements PizzaService {
     @Autowired
     private PizzaRepository pizzaRepository;
 
+    @Autowired
+    private PizzaCrudRepository pizzaCrudRepository;
 
-//    @PostConstruct
+    @Autowired
+    private ReviewCrudRepository reviewCrudRepository;
+
+
+
+    //    @PostConstruct
 //    @Transactional
     public void init() {
         LOG.info("Service initialized");
     }
 
     @Override
-    public List<Pizza> getAllPizzas() {
-        return pizzaRepository.findAllPizzas();
+    public void save(Pizza pizza) {
+        pizzaCrudRepository.save(pizza);
     }
+
+    @Override
+    public Iterable<Pizza> getAllPizzas() {
+        return pizzaCrudRepository.findAll();
+    }
+
+    @Override
+    public Page<Pizza> getPagedPizzas(Pageable pageable) {
+        return pizzaCrudRepository.findAll(pageable);
+    }
+
 
     @Override
     public Pizza findPizza(String pizzaId) {
@@ -47,6 +68,19 @@ public class PizzaServiceImpl implements PizzaService {
         }
 
         return pizza;
+    }
+
+    @Override
+    public Pizza findPizzaByName(String pizzaName) {
+        return pizzaCrudRepository.findOneByName(pizzaName);
+    }
+
+
+    @Override
+    public List<ReviewVO> getReviewsForAuthor(String authorName) {
+        //TODO
+    //    return reviewCrudRepository.findAllByAuthorIgnoreCase(authorName);
+        return pizzaRepository.getReviewVOsByAuthor(authorName);
     }
 
     @Override

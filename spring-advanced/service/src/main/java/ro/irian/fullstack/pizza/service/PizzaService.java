@@ -1,9 +1,12 @@
 package ro.irian.fullstack.pizza.service;
 
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.scheduling.annotation.Scheduled;
 import ro.irian.fullstack.pizza.domain.Pizza;
 import ro.irian.fullstack.pizza.domain.Review;
+import ro.irian.fullstack.pizza.domain.ReviewVO;
 
 import java.util.List;
 
@@ -11,17 +14,17 @@ import java.util.List;
  * @author Cristi Toth
  */
 public interface PizzaService {
-    List<Pizza> getAllPizzas();
+    void save(Pizza pizza);
+
+    Iterable<Pizza> getAllPizzas();
+
+    Page<Pizza> getPagedPizzas(Pageable pageable);
 
     Pizza findPizza(String pizzaId);
 
-    String addPizzaReview(String pizzaId, Review review);
+    Pizza findPizzaByName(String pizzaName);
 
-    @Scheduled(cron = "0 * * * * ?")
-    void notifyNewReviews();
-
-    @Cacheable
-    List<String> getIngredients();
+    List<ReviewVO> getReviewsForAuthor(String authorName);
 
     void createTestdata();
 }

@@ -5,42 +5,24 @@ package ro.irian.fullstack.pizza.domain;
  */
 public class ReviewVO {
 
-    private String pizzaId;
     private String pizzaName;
-    private String reviewId;
     private Integer stars;
     private String body;
     private String author;
-    private Long createdOn;
 
 
-    public ReviewVO(String pizzaId,
-                    String pizzaName,
-                    String reviewId,
+    public ReviewVO(String pizzaName,
                     Integer stars,
                     String body,
-                    String author,
-                    Long createdOn) {
-        this.pizzaId = pizzaId;
+                    String author) {
         this.pizzaName = pizzaName;
-        this.reviewId = reviewId;
         this.stars = stars;
         this.body = body;
         this.author = author;
-        this.createdOn = createdOn;
-    }
-
-
-    public String getPizzaId() {
-        return pizzaId;
     }
 
     public String getPizzaName() {
         return pizzaName;
-    }
-
-    public String getReviewId() {
-        return reviewId;
     }
 
     public Integer getStars() {
@@ -53,9 +35,5 @@ public class ReviewVO {
 
     public String getAuthor() {
         return author;
-    }
-
-    public Long getCreatedOn() {
-        return createdOn;
     }
 }

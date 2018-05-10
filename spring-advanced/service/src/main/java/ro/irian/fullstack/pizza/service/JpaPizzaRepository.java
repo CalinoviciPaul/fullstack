@@ -3,6 +3,7 @@ package ro.irian.fullstack.pizza.service;
 import org.springframework.stereotype.Repository;
 import ro.irian.fullstack.pizza.domain.BaseEntity;
 import ro.irian.fullstack.pizza.domain.Pizza;
+import ro.irian.fullstack.pizza.domain.ReviewVO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -30,7 +31,7 @@ public class JpaPizzaRepository implements PizzaRepository {
 
     @Override
     public void save(BaseEntity entity) {
-        if (!entity.isTransient()) {
+        if (entity.isTransient()) {
             em.persist(entity);
         }
     }
@@ -42,5 +43,19 @@ public class JpaPizzaRepository implements PizzaRepository {
                               + " where p.ingredients like :ingredient")
                  .setParameter("ingredient", "%" + ingredient + "%")
                  .getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<ReviewVO> getReviewVOsByAuthor(String author) {
+        return em.createQuery("select new ro.irian.fullstack.pizza.domain.ReviewVO(p.name, " +
+                "r.stars," +
+                "r.body," +
+                "r.author) " +
+                "from Pizza p " +
+                "join p.reviews r "
+                + "where r.author = :author")
+                .setParameter("author", author)
+                .getResultList();
     }
 }

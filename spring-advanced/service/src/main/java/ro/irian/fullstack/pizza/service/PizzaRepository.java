@@ -20,6 +20,5 @@ public interface PizzaRepository {
 
     List<Pizza> findPizzasByIngredient(String ingredient);
 
-    List<ReviewVO> findReviewsFromMoment(Date from);
-
+    List<ReviewVO> getReviewVOsByAuthor(String author);
 }
