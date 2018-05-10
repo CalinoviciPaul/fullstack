@@ -48,14 +48,7 @@ public class JpaPizzaRepository implements PizzaRepository {
     @SuppressWarnings("unchecked")
     @Override
     public List<ReviewVO> getReviewVOsByAuthor(String author) {
-        return em.createQuery("select new ro.irian.fullstack.pizza.domain.ReviewVO(p.name, " +
-                "r.stars," +
-                "r.body," +
-                "r.author) " +
-                "from Pizza p " +
-                "join p.reviews r "
-                + "where r.author = :author")
-                .setParameter("author", author)
-                .getResultList();
+        //TODO
+        return null;
     }
 }

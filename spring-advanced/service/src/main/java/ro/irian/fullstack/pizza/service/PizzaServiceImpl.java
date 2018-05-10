@@ -32,32 +32,24 @@ public class PizzaServiceImpl implements PizzaService {
     @Autowired
     private PizzaCrudRepository pizzaCrudRepository;
 
-    @Autowired
-    private ReviewCrudRepository reviewCrudRepository;
-
-
-
-    //    @PostConstruct
-//    @Transactional
     public void init() {
         LOG.info("Service initialized");
     }
 
     @Override
     public void save(Pizza pizza) {
-        pizzaCrudRepository.save(pizza);
+        //TODO
     }
 
     @Override
     public Iterable<Pizza> getAllPizzas() {
-        return pizzaCrudRepository.findAll();
+        //TODO
+        return null;
     }
 
-    @Override
-    public Page<Pizza> getPagedPizzas(Pageable pageable) {
-        return pizzaCrudRepository.findAll(pageable);
-    }
-
+        //TODO
+//    @Override
+//    public  getPagedPizzas
 
     @Override
     public Pizza findPizza(String pizzaId) {
@@ -70,18 +62,19 @@ public class PizzaServiceImpl implements PizzaService {
         return pizza;
     }
 
+        //TODO
+//    @Override
+//    public  findPizzaByName
+
     @Override
     public Pizza findPizzaByName(String pizzaName) {
         return pizzaCrudRepository.findOneByName(pizzaName);
     }
 
 
-    @Override
-    public List<ReviewVO> getReviewsForAuthor(String authorName) {
         //TODO
-    //    return reviewCrudRepository.findAllByAuthorIgnoreCase(authorName);
-        return pizzaRepository.getReviewVOsByAuthor(authorName);
-    }
+//    @Override
+//    public  getReviewsForAuthor(String authorName)
 
     @Override
     @Transactional

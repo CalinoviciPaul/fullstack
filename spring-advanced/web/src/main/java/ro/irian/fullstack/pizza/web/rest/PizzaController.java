@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ro.irian.fullstack.pizza.domain.Pizza;
 import ro.irian.fullstack.pizza.domain.Review;
@@ -30,6 +31,9 @@ public class PizzaController {
     @Autowired
     private PizzaService pizzaService;
 
+    @Autowired
+    private PizzaValidator validator;
+
 
     @RequestMapping(method = {RequestMethod.GET})
     public Iterable<Pizza> getAllPizzas() {
@@ -41,29 +45,24 @@ public class PizzaController {
         return pizzaService.findPizza(pizzaId);
     }
 
-    @RequestMapping(method = {RequestMethod.GET}, value = "/page")
-    public Page<Pizza> getPagedPizzas(Pageable pageable) {
-        return pizzaService.getPagedPizzas(pageable);
-    }
+        //TODO
+//    public  getPagedPizzas
 
-    @RequestMapping(method = {RequestMethod.GET}, value = "/reviews/auhor/{author}")
-    public Iterable<ReviewVO> getReviewsByAuthor(@PathVariable("author")String author) {
-        return pizzaService.getReviewsForAuthor(author);
-    }
+        //TODO
+//    public  getReviewsByAuthor
 
     @RequestMapping(method = {RequestMethod.POST})
-    public ResponseEntity<?> savePizza(@RequestBody Pizza pizza) throws URISyntaxException {
-        if (pizzaService.findPizzaByName(pizza.getName()) == null) {
-            pizzaService.save(pizza);
+    public ResponseEntity<?> savePizza(@RequestBody Pizza pizza,
+                                       BindingResult result)
+                                    throws URISyntaxException {
+        validator.validate(pizza, result);
+        if (result.hasErrors()) {
+            return ResponseEntity.badRequest().body(result.getFieldError());
+        }
+        else {
             return ResponseEntity.created(
                     new URI("/rest/pizzas/" + pizza.get_id()))
                     .build();
-        }
-        else {
-            return ResponseEntity.badRequest().body(
-                    new ValidationError(
-                            "name",
-                            "Pizza name must be unique"));
         }
     }
 }

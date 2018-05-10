@@ -18,13 +18,9 @@ public interface PizzaService {
 
     Iterable<Pizza> getAllPizzas();
 
-    Page<Pizza> getPagedPizzas(Pageable pageable);
-
     Pizza findPizza(String pizzaId);
 
     Pizza findPizzaByName(String pizzaName);
-
-    List<ReviewVO> getReviewsForAuthor(String authorName);
 
     void createTestdata();
 }
