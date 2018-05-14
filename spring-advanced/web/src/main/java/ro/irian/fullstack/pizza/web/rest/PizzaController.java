@@ -17,7 +17,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 /**
- * REST service for pizzas.
+ * REST service for pizzas..
  *
  * @author Cristi Toth
  */
