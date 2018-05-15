@@ -19,8 +19,6 @@
     </properties>
 
     <modules>
-        <module>spring-rest</module>
-        <module>spring-jpa</module>
         <module>spring-advanced</module>
     </modules>
 

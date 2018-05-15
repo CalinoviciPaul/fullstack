@@ -12,5 +12,8 @@
     <mapped-superclass class="ro.irian.fullstack.pizza.domain.BaseEntity"/>
     <entity class="ro.irian.fullstack.pizza.domain.Pizza"/>
     <entity class="ro.irian.fullstack.pizza.domain.Review"/>
+    <entity class="ro.irian.fullstack.pizza.domain.Order"/>
+    <entity class="ro.irian.fullstack.pizza.domain.PizzaOrder"/>
+    <entity class="ro.irian.fullstack.pizza.domain.Customer"/>
 
 </entity-mappings>
