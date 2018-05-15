@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Import;
 import ro.irian.fullstack.pizza.service.PizzaServiceConfig;
 
 /**
- * Spring boot main configuration
+ * Spring boot main configuration.
  *
  * @author Cristi Toth
  */
