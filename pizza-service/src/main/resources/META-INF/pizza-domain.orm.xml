@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2016 Irian Software Development SRL. All Rights Reserved.
+  ~ This software is the proprietary information of Irian Software Development SRL.
+  ~ Use is subject to license and non-disclosure terms
+  -->
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 version="2.0">
+
+    <mapped-superclass class="ro.irian.fullstack.customerservice.domain.BaseEntity"/>
+    <entity class="ro.irian.fullstack.customerservice.domain.Pizza"/>
+    <entity class="ro.irian.fullstack.customerservice.domain.Review"/>
+    <entity class="ro.irian.fullstack.customerservice.domain.Order"/>
+    <entity class="ro.irian.fullstack.customerservice.domain.PizzaOrder"/>
+
+</entity-mappings>
