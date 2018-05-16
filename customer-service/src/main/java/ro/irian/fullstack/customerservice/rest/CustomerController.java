@@ -33,11 +33,11 @@ public class CustomerController {
     }
 
     @RequestMapping(method = {RequestMethod.POST})
-    public ResponseEntity<?> saveCustomer(@RequestBody Customer customer) throws URISyntaxException {
+    public ResponseEntity<Customer> saveCustomer(@RequestBody Customer customer) throws URISyntaxException {
         customerService.save(customer);
 
         return ResponseEntity.created(
                 new URI("/rest/customers/" + customer.get_id()))
-                .build();
+                .body(customer);
     }
 }

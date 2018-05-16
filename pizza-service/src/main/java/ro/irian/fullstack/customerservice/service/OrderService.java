@@ -8,6 +8,6 @@ public interface OrderService {
 
     Order findOrderById(String id);
 
-    void save(Order order);
+    Order save(Order order);
 
 }

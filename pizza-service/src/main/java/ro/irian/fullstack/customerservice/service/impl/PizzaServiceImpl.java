@@ -14,6 +14,8 @@ import ro.irian.fullstack.customerservice.repository.PizzaRepository;
 import ro.irian.fullstack.customerservice.service.PizzaService;
 import ro.irian.fullstack.customerservice.service.exception.PizzaNotFoundException;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.Arrays;
 import java.util.List;
 
@@ -40,6 +42,7 @@ public class PizzaServiceImpl implements PizzaService {
     @Override
     public void save(Pizza pizza) {
         pizzaCrudRepository.save(pizza);
+
     }
 
     @Override
@@ -114,13 +117,13 @@ public class PizzaServiceImpl implements PizzaService {
         PizzaOrder pizzaOrderMargarita = new PizzaOrder(2, pizzaMargarita);
         PizzaOrder pizzaOrderPeperoni = new PizzaOrder(3, pizzaPeperoni);
 
-        Order orderJohn = new Order("TODO", Arrays.asList(pizzaOrderMargarita, pizzaOrderPeperoni));
+        Order orderJohn = new Order("customerId2",  Arrays.asList(pizzaOrderMargarita, pizzaOrderPeperoni));
 
         orderCrudRepository.save(orderJohn);
 
         PizzaOrder pizzaOrderPeperoniIon = new PizzaOrder(2, pizzaPeperoni);
 
-        Order orderIon = new Order("TODO", Arrays.asList(pizzaOrderPeperoniIon));
+        Order orderIon = new Order("customerId1",  Arrays.asList(pizzaOrderPeperoniIon));
 
         orderCrudRepository.save(orderIon);
 

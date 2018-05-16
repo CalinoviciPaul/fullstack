@@ -25,13 +25,9 @@ public class Order extends BaseEntity{
         this.pizzaOrders = pizzaOrders;
     }
 
-    @PrePersist
-    public void prePersist() {
-       super.prePersist();
-
-       if(customerId == null){
-           this.customerId = this.customer.get_id();
-       }
+    public Order(Customer customer, List<PizzaOrder> pizzaOrders) {
+        this.customer = customer;
+        this.pizzaOrders = pizzaOrders;
     }
 
     public Customer getCustomer() {

@@ -8,7 +8,7 @@ public class PizzaOrder extends BaseEntity{
 
     private Integer quantity;
 
-    @ManyToOne
+    @ManyToOne(cascade = {})
     private Pizza pizza;
 
     public PizzaOrder() {
