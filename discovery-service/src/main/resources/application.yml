@@ -1,9 +1,9 @@
 spring:
   application:
-    name: discovery-service
+    name:    #TODO define Eureka service name
 
 server:
-  port: 8083
+  port:   #TODO add port
 
 eureka:
   instance:

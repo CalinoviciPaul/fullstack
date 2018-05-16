@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EnableDiscoveryClient
+//TODO enable eureka client
 @Import({PizzaServiceConfig.class})
 public class PizzaServiceApplication {
 

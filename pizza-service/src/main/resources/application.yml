@@ -1,6 +1,6 @@
 spring:
   application:
-    name: pizza-service
+    name:      # TODO define service name
 
 server:
   port: 8081
@@ -8,5 +8,5 @@ server:
 eureka:
     client:
       serviceUrl:
-        defaultZone: http://localhost:8083/eureka/
+        defaultZone:   #TODO add eureka server url.
   

@@ -7,11 +7,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EnableEurekaServer
-public class DemoApplication {
+//TODO enable eureka server
+public class DiscoveryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(DiscoveryApplication.class, args);
 	}
 
 }
