@@ -10,7 +10,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 /**
- * REST service for orders..
+ * REST service for orders.
  *
  * @author Cristi Toth
  */
