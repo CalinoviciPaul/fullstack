@@ -19,7 +19,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 /**
- * REST service for orders..
+ * REST service for orders...
  *
  * @author Cristi Toth
  */
