@@ -34,6 +34,7 @@ public class OrderController {
     @Autowired
     private RestTemplate restTemplate;
 
+    //TODO remove as no longer needed.
     @Autowired
     private DiscoveryClient discoveryClient;
 
@@ -63,6 +64,8 @@ public class OrderController {
     }
 
     private Customer createCustomer(Customer customer){
+        //TODO use service name directly.
+        //Ribbon will take care of resolving the service instances and load balance the service calls.
         List<ServiceInstance> instanceInfos =  discoveryClient.getInstances("customer-service");
         ServiceInstance serviceInstance = instanceInfos.get(0);
 

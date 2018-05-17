@@ -18,6 +18,7 @@ public class PizzaServiceApplication {
 	}
 
 	@Bean
+	//TODO make it load balanced.
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
