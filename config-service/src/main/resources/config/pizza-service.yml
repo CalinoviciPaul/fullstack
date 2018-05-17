@@ -1,3 +1,7 @@
+spring:
+  application:
+    name: pizza-service
+
 server:
   port: 8081
 
