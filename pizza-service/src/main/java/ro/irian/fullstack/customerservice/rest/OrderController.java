@@ -34,9 +34,6 @@ public class OrderController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Autowired
-    private DiscoveryClient discoveryClient;
-
 
     @RequestMapping(method = {RequestMethod.GET})
     public Iterable<Order> getAllOrders() {
@@ -63,12 +60,7 @@ public class OrderController {
     }
 
     private Customer createCustomer(Customer customer){
-        List<ServiceInstance> instanceInfos =  discoveryClient.getInstances("customer-service");
-        ServiceInstance serviceInstance = instanceInfos.get(0);
-
         HttpEntity<Customer> request = new HttpEntity<>(customer);
-        String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/rest/customers";
-
-        return restTemplate.postForObject(url,  request, Customer.class);
+        return restTemplate.postForObject( "http://customer-service/rest/customers",  request, Customer.class);
     }
 }

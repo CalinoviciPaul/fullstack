@@ -27,8 +27,8 @@ import static org.junit.Assert.assertThat;
 @SpringBootTest
 public class PizzaServiceApplicationTests {
 
-	@Autowired
-	private RestTemplate restTemplate;
+
+	private RestTemplate restTemplate = new RestTemplate();
 
 	@Autowired
 	private DiscoveryClient discoveryClient;
