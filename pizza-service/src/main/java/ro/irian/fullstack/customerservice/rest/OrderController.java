@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import ro.irian.fullstack.customerservice.domain.Customer;
 import ro.irian.fullstack.customerservice.domain.Order;
 import ro.irian.fullstack.customerservice.service.OrderService;
+import ro.irian.fullstack.customerservice.service.WebCustomerService;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -32,7 +33,7 @@ public class OrderController {
     private OrderService orderService;
 
     @Autowired
-    private RestTemplate restTemplate;
+    private WebCustomerService webCustomerService;
 
 
     @RequestMapping(method = {RequestMethod.GET})
@@ -47,10 +48,11 @@ public class OrderController {
 
     @RequestMapping(method = {RequestMethod.POST})
     public ResponseEntity<?> saveOrder(@RequestBody Order order) throws URISyntaxException {
-        if(order.getCustomerId() == null){
-            Customer createdCustomer = this.createCustomer(order.getCustomer());
-            order = new Order(createdCustomer.get_id(), order.getPizzaOrders());
-        }
+        //TODO
+        // implement WebCustomerServiceImpl with a RestTemplate
+        // implement getCustomerById and saveCustomer methods in WebCustomerServiceImpl
+        // check if Order has an existing Customer (getById returns something other than null)
+        // if Order doesn't have an existing Customer - save new Customer then set in Order
 
        Order persistedOrder  = orderService.save(order);
 
@@ -59,8 +61,5 @@ public class OrderController {
                 .body(persistedOrder);
     }
 
-    private Customer createCustomer(Customer customer){
-        HttpEntity<Customer> request = new HttpEntity<>(customer);
-        return restTemplate.postForObject( "http://customer-service/rest/customers",  request, Customer.class);
-    }
+
 }

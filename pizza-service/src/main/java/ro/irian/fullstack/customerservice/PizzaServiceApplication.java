@@ -18,9 +18,5 @@ public class PizzaServiceApplication {
 		SpringApplication.run(PizzaServiceApplication.class, args);
 	}
 
-	@Bean
-	@LoadBalanced
-	public RestTemplate restTemplate() {
-		return new RestTemplate();
-	}
+	//TODO create RestTemplate bean
 }
