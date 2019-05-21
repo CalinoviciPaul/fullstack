@@ -78,8 +78,7 @@ public class PizzaServiceImpl implements PizzaService {
 
     @Override
     public List<ReviewVO> getReviewsForAuthor(String authorName) {
-        //TODO
-    //    return reviewCrudRepository.findAllByAuthorIgnoreCase(authorName);
+
         return pizzaRepository.getReviewVOsByAuthor(authorName);
     }
 
