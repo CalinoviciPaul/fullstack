@@ -1,9 +1,14 @@
 package ro.irian.fullstack.pizza.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 /**
  * @author Cristi Toth
  */
-//TODO
+@Entity
+@Table(name = "review")
 public class Review extends BaseEntity{
 
     private Integer stars;
@@ -52,4 +57,5 @@ public class Review extends BaseEntity{
     public void setCreatedOn(Long createdOn) {
         this.createdOn = createdOn;
     }
+
 }
