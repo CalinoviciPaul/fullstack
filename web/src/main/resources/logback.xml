@@ -11,6 +11,7 @@
     </appender>
 
     <logger name="org.springframework" level="INFO"/>
+    <logger name="ro.irian" level="DEBUG"/>
 
     <!-- TODO: enable debug logging for ro.irian-->
 
