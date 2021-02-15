@@ -1,5 +1,9 @@
 package ro.irian.fullstack.pizza.web.rest;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import ro.irian.fullstack.pizza.domain.Pizza;
 import ro.irian.fullstack.pizza.domain.Review;
 
@@ -15,17 +19,19 @@ import java.util.Map;
  */
 
 
+@RestController()
+@RequestMapping("/rest/pizzas")
 public class PizzaController {
 
 
+    @GetMapping()
     public List<Pizza> getAllPizzas() {
-        //TODO
-        return null;
+       return PizzaController.pizzas;
     }
 
-    public Pizza findPizza(String pizzaId) {
-        //TODO
-        return null;
+    @GetMapping("/{id}")
+    public Pizza findPizza(@PathVariable("id")String pizzaId) {
+        return PizzaController.pizzaMap.get(pizzaId);
     }
 
 
