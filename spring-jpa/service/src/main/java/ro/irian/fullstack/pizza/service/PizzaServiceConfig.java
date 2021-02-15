@@ -11,7 +11,6 @@ import org.springframework.context.annotation.ImportResource;
  */
 @Configuration
 @ComponentScan(basePackages = "ro.irian.fullstack.pizza.service")
-@ImportResource("classpath:/META-INF/pizza-persistence.spring.xml")
 public class PizzaServiceConfig {
 
 }

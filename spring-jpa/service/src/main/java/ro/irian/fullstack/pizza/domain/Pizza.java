@@ -1,6 +1,6 @@
 package ro.irian.fullstack.pizza.domain;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +8,7 @@ import java.util.List;
  * @author Cristi Toth
  */
 @Entity
+@Table(name = "pizza")
 public class Pizza extends BaseEntity{
 
     //TODO
@@ -18,6 +19,8 @@ public class Pizza extends BaseEntity{
     private String ingredients;
 
     //TODO
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "pizza_id")
     private List<Review> reviews;
 
     private boolean canPurchase = true;

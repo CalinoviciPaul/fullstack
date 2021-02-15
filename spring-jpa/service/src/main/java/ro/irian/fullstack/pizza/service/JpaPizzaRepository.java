@@ -4,6 +4,9 @@ import org.springframework.stereotype.Repository;
 import ro.irian.fullstack.pizza.domain.BaseEntity;
 import ro.irian.fullstack.pizza.domain.Pizza;
 
+import javax.persistence.Entity;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
@@ -13,11 +16,13 @@ import java.util.List;
 public class JpaPizzaRepository implements PizzaRepository {
 
     //TODO: inject EntityManager
+    @PersistenceContext
+    EntityManager em;
 
     @SuppressWarnings("unchecked")
     @Override
     public List<Pizza> findAllPizzas() {
-        //TODO
+        return em.createQuery("select p from Pizza p").getResultList();
     }
 
     @Override
@@ -35,6 +40,8 @@ public class JpaPizzaRepository implements PizzaRepository {
     @SuppressWarnings("unchecked")
     @Override
     public List<Pizza> findPizzasByIngredient(String ingredient) {
-        //TODO
+        return em.createQuery("select p from Pizza p where :ingredient in  p.ingredients")
+                .setParameter("ingredient", ingredient)
+                .getResultList();
     }
 }

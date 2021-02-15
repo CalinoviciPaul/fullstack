@@ -16,6 +16,7 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 import java.util.Date;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -67,7 +68,7 @@ public class BaseEntity {
     @Transient
     public boolean isTransient() {
         //TODO
-        return ;
+        return this._id == null;
     }
 
     @PrePersist
@@ -85,11 +86,14 @@ public class BaseEntity {
 
     @Override
     public boolean equals(Object o) {
-        //TODO
+        if (this == o) return true;
+        if (!(o instanceof BaseEntity)) return false;
+        BaseEntity that = (BaseEntity) o;
+        return get_id().equals(that.get_id());
     }
 
     @Override
     public int hashCode() {
-        //TODO
+        return Objects.hash(get_id());
     }
 }

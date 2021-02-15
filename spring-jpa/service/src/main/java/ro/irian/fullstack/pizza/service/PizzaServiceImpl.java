@@ -2,12 +2,14 @@ package ro.irian.fullstack.pizza.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ro.irian.fullstack.pizza.domain.Pizza;
 import ro.irian.fullstack.pizza.domain.Review;
 import ro.irian.fullstack.pizza.service.exception.PizzaNotFoundException;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 /**
@@ -23,17 +25,17 @@ public class PizzaServiceImpl implements PizzaService {
 
 
     //TODO: inject repository
+    @Autowired
+    PizzaRepository pizzaRepository;
 
-
-//    @PostConstruct
-//    @Transactional
+    @PostConstruct
     public void init() {
         LOG.info("Service initialized");
     }
 
     @Override
     public List<Pizza> getAllPizzas() {
-        //TODO
+        return pizzaRepository.findAllPizzas();
     }
 
     @Override
