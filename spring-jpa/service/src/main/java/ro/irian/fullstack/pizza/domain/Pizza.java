@@ -11,7 +11,6 @@ import java.util.List;
 @Table(name = "pizza")
 public class Pizza extends BaseEntity{
 
-    //TODO
     private String name;
     private Double price;
     private Integer weight;
@@ -107,4 +106,6 @@ public class Pizza extends BaseEntity{
     public void setSoldOut(boolean soldOut) {
         this.soldOut = soldOut;
     }
+
+
 }

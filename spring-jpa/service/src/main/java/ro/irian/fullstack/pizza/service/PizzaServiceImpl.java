@@ -40,7 +40,7 @@ public class PizzaServiceImpl implements PizzaService {
 
     @Override
     public Pizza findPizza(String pizzaId) {
-        Pizza pizza = null; //TODO;
+        Pizza pizza = pizzaRepository.findPizzaById(pizzaId); //TODO;
 
         if (pizza == null) {
             throw new PizzaNotFoundException(pizzaId);
@@ -56,7 +56,7 @@ public class PizzaServiceImpl implements PizzaService {
 
         Pizza pizza;
 
-        pizza = new Pizza("pizza1",
+        pizza = new Pizza(null,
                           "4 STAGIONI",
                           27.5,
                           550,
@@ -66,8 +66,10 @@ public class PizzaServiceImpl implements PizzaService {
         pizza.addReview(new Review(4, "It's great!", "miha@example.org", 100000000L));
 
 //      TODO  save(pizza);
+        pizzaRepository.save(pizza);
 
-        pizza = new Pizza("pizza2",
+
+        pizza = new Pizza(null,
                           "PEPPERONI",
                           25D,
                           450,
@@ -77,8 +79,8 @@ public class PizzaServiceImpl implements PizzaService {
         pizza.addReview(new Review(1, "It's awful!", "cristi@irian.ro", 130000000L));
 
 //      TODO  save(pizza);
-
-        pizza = new Pizza("pizza3",
+        pizzaRepository.save(pizza);
+        pizza = new Pizza(null,
                           "MARGARITA",
                           21.5,
                           500,
@@ -86,7 +88,7 @@ public class PizzaServiceImpl implements PizzaService {
                           "sos rosii, mozzarella, oregano");
         pizza.addReview(new Review(2, "It's too boring!", "cristi@irian.ro", 140000000L));
 //      TODO  save(pizza);
-
+        pizzaRepository.save(pizza);
         LOG.info("Testdata initialized");
     }
 
