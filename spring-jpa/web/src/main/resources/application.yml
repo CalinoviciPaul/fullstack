@@ -14,3 +14,8 @@ spring:
     hibernate:
       ddl-auto: create-drop
     database-platform: org.hibernate.dialect.HSQLDialect
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
